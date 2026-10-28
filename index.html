@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hriday Rathi</title>
+    <meta name="description" content="Hriday Rathi. London based startup operator. Commercial strategy, investor relations, and operations for early stage deep tech companies.">
+    <meta property="og:title" content="Hriday Rathi | Commercial Lead for Early Stage Startups">
+    <meta property="og:description" content="I own the commercial side of early stage startups so founders can stay building. Fundraising, strategy, partnerships, and operations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hridayrathi.netlify.app/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hriday Rathi | Commercial Lead for Early Stage Startups">
+    <meta name="twitter:description" content="I own the commercial side of early stage startups so founders can stay building.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif'>H</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F6F5F2;
+            --bg-card: #FFFFFF;
+            --text: #18181B;
+            --text-body: #3F3F46;
+            --text-muted: #71717A;
+            --text-light: #A1A1AA;
+            --accent: #6D5BD0;
+            --accent-light: #8B7DE0;
+            --accent-soft: rgba(109, 91, 208, 0.06);
+            --accent-border: rgba(109, 91, 208, 0.16);
+            --warm: #E8E5E0;
+            --border: rgba(24, 24, 27, 0.07);
+            --border-hover: rgba(24, 24, 27, 0.14);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.05);
+            --serif: 'Fraunces', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.72;
+            font-weight: 400;
+            font-size: 15.5px;
+        }
+
+        ::selection { background: var(--accent); color: #fff; }
+
+        .wrap { max-width: 940px; margin: 0 auto; padding: 0 36px; }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 14px 0;
+            background: rgba(246, 245, 242, 0.72);
+            backdrop-filter: blur(24px) saturate(1.2);
+            border-bottom: 1px solid transparent;
+            transition: all 0.35s ease;
+        }
+        nav.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow-sm); }
+        nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.08rem;
+            font-weight: 400;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.01em; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-toggle svg { width: 22px; height: 22px; color: var(--text); }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -15%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(109,91,208,0.06) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%; left: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(232,229,224,0.6) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 14px 5px 10px;
+            border-radius: 20px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+            margin-bottom: 28px;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.1s forwards;
+        }
+        .hero-pill::before {
+            content: '';
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.3rem, 4.6vw, 3.5rem);
+            line-height: 1.15;
+            font-weight: 300;
+            margin-bottom: 24px;
+            max-width: 660px;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.22s forwards;
+        }
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .hero-body {
+            font-size: 1.02rem;
+            color: var(--text-body);
+            max-width: 500px;
+            line-height: 1.82;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.36s forwards;
+        }
+
+        .hero-bar {
+            display: flex;
+            gap: 1px;
+            margin-top: 48px;
+            background: var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 0.5s ease 0.5s forwards;
+        }
+        .hero-bar-item {
+            display: flex; flex-direction: column; gap: 2px;
+            padding: 16px 28px;
+            background: var(--bg-card);
+        }
+        .hero-bar-item:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+        .hero-bar-item:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+        .hb-label {
+            font-size: 0.65rem; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--text-light); font-weight: 700;
+        }
+        .hb-value { font-size: 0.88rem; color: var(--text); font-weight: 600; }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 80px 0; }
+        .section-label {
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 10px;
+        }
+        .section-heading {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 2.6vw, 2rem);
+            line-height: 1.22;
+            margin-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+        .section-sub {
+            color: var(--text-body);
+            max-width: 540px;
+            font-size: 0.96rem;
+            line-height: 1.78;
+            margin-bottom: 40px;
+        }
+        .line { height: 1px; background: var(--border); }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--text-body);
+            margin-bottom: 16px;
+            font-size: 0.94rem;
+            line-height: 1.82;
+        }
+        .about-text strong { color: var(--text); font-weight: 600; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s;
+        }
+        .stat-box:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); }
+        .stat-box .big {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            color: var(--accent);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            margin-bottom: 2px;
+        }
+        .stat-box .small { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+        /* ===== EXPERIENCE ===== */
+        .exp-block {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 32px;
+            padding: 36px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .exp-block:last-child { border-bottom: none; }
+        .exp-aside { display: flex; flex-direction: column; gap: 2px; }
+        .exp-when { font-size: 0.84rem; color: var(--text-muted); }
+        .exp-kind {
+            font-size: 0.68rem; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700;
+        }
+        .exp-body h3 {
+            font-family: var(--serif);
+            font-size: 1.18rem; font-weight: 400;
+            margin-bottom: 2px; letter-spacing: -0.01em;
+        }
+        .exp-body .loc { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px; }
+        .exp-body p { color: var(--text-body); font-size: 0.9rem; line-height: 1.78; margin-bottom: 8px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+        .tag {
+            font-size: 0.7rem; padding: 3px 10px; border-radius: 12px;
+            background: var(--accent-soft); color: var(--accent); font-weight: 600;
+        }
+
+        /* ===== CAPABILITIES ===== */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .cap {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cap::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .cap:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .cap:hover::before { transform: scaleX(1); }
+        .cap h3 {
+            font-family: var(--serif);
+            font-size: 0.98rem; font-weight: 400;
+            margin-bottom: 6px; letter-spacing: -0.01em;
+        }
+        .cap p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.62; }
+
+        /* ===== WORK ===== */
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .wk {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s;
+        }
+        .wk:hover { border-color: var(--accent-border); box-shadow: var(--shadow-md); }
+        .wk .wk-tag {
+            font-size: 0.66rem; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--accent);
+            font-weight: 700; margin-bottom: 8px;
+        }
+        .wk h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .wk p { color: var(--text-muted); font-size: 0.84rem; line-height: 1.7; margin-bottom: 12px; }
+        .wk .outcome {
+            font-size: 0.78rem; color: var(--accent); font-weight: 600;
+            padding: 5px 11px; background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 6px; display: inline-block;
+        }
+
+        /* ===== TOOLS ===== */
+        .tools-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .tool {
+            font-size: 0.8rem; padding: 7px 16px; border-radius: 20px;
+            border: 1px solid var(--border); color: var(--text-body);
+            background: var(--bg-card); font-weight: 500;
+            box-shadow: var(--shadow-sm); transition: all 0.2s;
+        }
+        .tool:hover { border-color: var(--accent-border); color: var(--accent); }
+
+        /* ===== PRINCIPLES ===== */
+        .prin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .prin {
+            padding-left: 18px;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.3s;
+        }
+        .prin:hover { border-left-color: var(--accent); }
+        .prin h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; margin-bottom: 4px; }
+        .prin p { color: var(--text-muted); font-size: 0.84rem; line-height: 1.7; }
+
+        /* ===== CONTACT ===== */
+        .cta { text-align: center; padding: 92px 0; background: var(--bg-card); border-radius: var(--radius); margin: 0 auto; }
+        .cta .section-heading { margin-bottom: 10px; }
+        .cta .section-sub { margin: 0 auto 32px; text-align: center; }
+        .cta-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            padding: 10px 20px; border: 1px solid var(--border);
+            border-radius: 8px; color: var(--text);
+            text-decoration: none; font-size: 0.84rem;
+            font-weight: 600; background: var(--bg-card);
+            box-shadow: var(--shadow-sm); transition: all 0.2s;
+        }
+        .cta-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow-md); }
+        .cta-btn svg { width: 14px; height: 14px; }
+
+        footer { padding: 22px 0; border-top: 1px solid var(--border); text-align: center; }
+        footer p { font-size: 0.74rem; color: var(--text-light); font-weight: 500; }
+        .footer-links { display: flex; justify-content: center; gap: 16px; margin-top: 8px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.74rem; font-weight: 500; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rv {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.45s ease, transform 0.45s ease;
+        }
+        .rv.on { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .wrap { padding: 0 20px; }
+            section { padding: 48px 0; }
+            .nav-toggle { display: block; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; right: 0; background: var(--bg);
+                padding: 16px 20px; gap: 16px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-links.open { display: flex; }
+            .hero-bar { flex-direction: column; width: 100%; }
+            .hero-bar-item:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+            .hero-bar-item:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+            .about-grid { grid-template-columns: 1fr; gap: 28px; }
+            .cap-grid { grid-template-columns: 1fr; }
+            .work-grid { grid-template-columns: 1fr; }
+            .exp-block { grid-template-columns: 1fr; gap: 4px; }
+            .prin-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cta-row { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <div class="wrap">
+        <div class="nav-logo">Hriday Rathi</div>
+        <button class="nav-toggle" aria-label="Menu" id="navToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#exp">Experience</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="wrap">
+        <div class="hero-pill">Available in London</div>
+        <h1>I own the commercial side so founders can <em>stay building.</em></h1>
+        <p class="hero-body">
+            I'm Hriday. I work with early stage technical teams that need someone to own the commercial side completely. Fundraising, strategy, partnerships, and the operational work that keeps a startup alive while the product gets built.
+        </p>
+        <div class="hero-bar">
+            <div class="hero-bar-item">
+                <span class="hb-label">Location</span>
+                <span class="hb-value">London, UK</span>
+            </div>
+            <div class="hero-bar-item">
+                <span class="hb-label">Current</span>
+                <span class="hb-value">Sumandra Ltd</span>
+            </div>
+            <div class="hero-bar-item">
+                <span class="hb-label">Background</span>
+                <span class="hb-value">Finance</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section id="about">
+    <div class="wrap">
+        <div class="section-label rv">About</div>
+        <div class="about-grid">
+            <div class="about-text rv">
+                <p>
+                    I run the entire commercial side of Sumandra, an aerospace deep tech startup in London. The founding team are engineers and researchers. Everything outside the product is my responsibility: fundraising, financial planning, partnerships, operations, and solving problems that don't have a clear owner.
+                </p>
+                <p>
+                    My background is in finance, so numbers, models, and risk are where I'm most natural. But the real job is much wider. Some weeks I'm deep in investor research, studying portfolio patterns and figuring out which funds are worth our time. Other weeks I'm at a tech event in Bangalore or a trade show in Shenzhen, building relationships that didn't exist before I walked in.
+                </p>
+                <p>
+                    I don't claim to have every answer. But I always deliver the outcome. When I hit something outside my experience, I learn my way through it, ask the right people, or bring in someone who's done it before. I've connected with advisors who have over 20 years of industry experience, and they're now helping open doors we couldn't reach on our own.
+                </p>
+                <p>
+                    I use AI seriously as a working tool. Not as a crutch, but because it lets me operate at a depth that would normally take a decade of experience. The strategic thinking and pattern recognition are mine. The technology just lets me move faster.
+                </p>
+                <p>
+                    <strong>Where I'm heading:</strong> I want to become the person a deep tech company trusts to own its entire commercial operation. Fundraising, revenue, partnerships, market entry. Every step I'm taking now is building toward that.
+                </p>
+            </div>
+            <div class="stat-grid rv">
+                <div class="stat-box">
+                    <div class="big">200+</div>
+                    <div class="small">Investors researched and contacted for our seed round</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big">£3.2M</div>
+                    <div class="small">Seed fundraise managing end to end</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big">6</div>
+                    <div class="small">Countries where I've built working relationships this year</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big">1</div>
+                    <div class="small">Person handling all of this. Just me.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section id="exp">
+    <div class="wrap">
+        <div class="section-label rv">Experience</div>
+        <div class="section-heading rv">The work so far</div>
+
+        <div class="exp-block rv">
+            <div class="exp-aside">
+                <span class="exp-when">2025 – Present</span>
+                <span class="exp-kind">Full time</span>
+            </div>
+            <div class="exp-body">
+                <h3>Founder's Associate &amp; BD Lead</h3>
+                <div class="loc">Sumandra Ltd · Aerospace Deep Tech · London</div>
+                <p>
+                    Sumandra builds AI digital twin technology for composite structures. The rest of the team are engineers. I own the business: fundraising, partnerships, finances, and operations. There's no playbook for most of what I do. I work it out, get it done, and move on.
+                </p>
+                <p>
+                    Built the investor pipeline from nothing. Researched and qualified 200+ funds, wrote all outreach, built the CRM system, and now run every stage of our £3.2M seed fundraise. Brought in business advisors with deep industry experience who are now helping open up partnerships and customer conversations we couldn't reach alone.
+                </p>
+                <p>
+                    I own our financial models, projections, and budget. When a number doesn't add up or a model needs finishing, it's on me. I manage pitch materials, prep for investor meetings, and handle whatever operational gap shows up that week.
+                </p>
+                <div class="tags">
+                    <span class="tag">Fundraising</span>
+                    <span class="tag">Financial models</span>
+                    <span class="tag">Investor outreach</span>
+                    <span class="tag">Business advisors</span>
+                    <span class="tag">CRM &amp; pipeline</span>
+                    <span class="tag">Partnerships</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="exp-block rv">
+            <div class="exp-aside">
+                <span class="exp-when">Jun 2025 – Nov 2025</span>
+                <span class="exp-kind">Full time</span>
+            </div>
+            <div class="exp-body">
+                <h3>Growth &amp; Capital Relations</h3>
+                <div class="loc">Upper Echelon · Venture &amp; Partnerships</div>
+                <p>
+                    Worked on early stage capital conversations with family offices. Deal sourcing, relationship management, and connecting founders with investors. Working on the investor side taught me how capital thinks, which made me sharper at fundraising too.
+                </p>
+                <div class="tags">
+                    <span class="tag">Deal sourcing</span>
+                    <span class="tag">Family offices</span>
+                    <span class="tag">Investor relations</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section>
+    <div class="wrap">
+        <div class="section-label rv">What I Do</div>
+        <div class="section-heading rv">What my weeks look like</div>
+        <div class="section-sub rv">
+            My work doesn't fit a clean job description. Here's what it actually looks like.
+        </div>
+
+        <div class="cap-grid">
+            <div class="cap rv">
+                <h3>Fundraising &amp; investors</h3>
+                <p>Finding the right investors, studying their portfolio patterns, writing messages that get responses, and keeping conversations alive. Half the skill is knowing who not to waste time on.</p>
+            </div>
+            <div class="cap rv">
+                <h3>Finance &amp; models</h3>
+                <p>Budgets, projections, unit economics. My training is in finance, so this is where I'm sharpest. I can look at a model, find what's wrong, and fix it before an investor does.</p>
+            </div>
+            <div class="cap rv">
+                <h3>Bringing in the right people</h3>
+                <p>When I hit something I can't solve alone, I find the person who can. I've connected with advisors who have deep experience in our space. I'd rather bring in the right help than pretend I have every skill myself.</p>
+            </div>
+            <div class="cap rv">
+                <h3>Reading people &amp; patterns</h3>
+                <p>Why did that investor pass? What made that customer respond? What's the real objection behind the polite no? I study behaviour, I spot patterns, and I use that to make better calls next time.</p>
+            </div>
+            <div class="cap rv">
+                <h3>Outreach that actually works</h3>
+                <p>I write every cold email and message myself. Personalised, researched, specific. Most of our pipeline started because I wrote something that made someone want to reply. That's preparation, not luck.</p>
+            </div>
+            <div class="cap rv">
+                <h3>Operations &amp; problem solving</h3>
+                <p>Some days it's restructuring a database. Other days it's working out how to get the right meeting at an event in Hong Kong. Startups don't have neat job scopes. I'm fine with that.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section id="work">
+    <div class="wrap">
+        <div class="section-label rv">Selected Work</div>
+        <div class="section-heading rv">Results, not just responsibilities</div>
+
+        <div class="work-grid" style="margin-top: 8px;">
+            <div class="wk rv">
+                <div class="wk-tag">Fundraising</div>
+                <h3>Investor pipeline from zero</h3>
+                <p>When I started, there was no list, no CRM, no system. I built it all. Researched 200+ funds, figured out who fits, wrote every email, set up tracking, and now manage the full lifecycle of our seed round.</p>
+                <div class="outcome">Running the entire £3.2M fundraise</div>
+            </div>
+            <div class="wk rv">
+                <div class="wk-tag">Team building</div>
+                <h3>Advisory network</h3>
+                <p>Spotted a gap in our industry credibility and went after it. Spoke to people across the sector, built relationships, and connected the company with business advisors who are now helping open doors to customers and partners we couldn't get to before.</p>
+                <div class="outcome">Doors that didn't exist six months ago</div>
+            </div>
+            <div class="wk rv">
+                <div class="wk-tag">Network</div>
+                <h3>International presence from scratch</h3>
+                <p>In recent months I've been on the ground in China, Hong Kong, India, and Dubai. I went to trade shows, industry events, and set up meetings with people I'd never spoken to. I built a working international network from nothing.</p>
+                <div class="outcome">6 countries, real relationships</div>
+            </div>
+            <div class="wk rv">
+                <div class="wk-tag">Strategy</div>
+                <h3>AI as a thinking tool</h3>
+                <p>Built custom workflows that handle deep market research, competitive analysis, outreach personalisation, and behavioural pattern recognition. The judgement and strategy are mine. The technology lets me think at a depth and speed that would normally take over a decade of experience to match.</p>
+                <div class="outcome">Research depth that compounds weekly</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section>
+    <div class="wrap">
+        <div class="section-label rv">Tools</div>
+        <div class="section-heading rv">Daily working stack</div>
+        <div class="tools-wrap rv">
+            <span class="tool">Claude AI</span>
+            <span class="tool">Notion</span>
+            <span class="tool">Google Sheets</span>
+            <span class="tool">Google Workspace</span>
+            <span class="tool">Perplexity</span>
+            <span class="tool">Clay</span>
+            <span class="tool">Apollo.io</span>
+            <span class="tool">LinkedIn Sales Nav</span>
+            <span class="tool">Excel</span>
+            <span class="tool">Canva</span>
+            <span class="tool">CRM systems</span>
+            <span class="tool">Financial modelling</span>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section>
+    <div class="wrap">
+        <div class="section-label rv">How I Work</div>
+        <div class="section-heading rv">Principles I work by</div>
+
+        <div class="prin-grid">
+            <div class="prin rv">
+                <h3>Full responsibility, always</h3>
+                <p>If I took it on, the result is mine. Not "I tried." Not "I was waiting on someone." Good outcome or bad, it's on me. I don't share blame and I don't make excuses.</p>
+            </div>
+            <div class="prin rv">
+                <h3>Gaps are problems to solve</h3>
+                <p>I don't know everything. But I've never let that stop a result. I learn, I ask, I pull in someone who's been there. The thing still gets delivered. The gap just means I have to be more resourceful.</p>
+            </div>
+            <div class="prin rv">
+                <h3>Build the team, not just the task</h3>
+                <p>One person can't carry every function. So I bring in advisors, build relationships with people who know more than me, and make sure the right expertise is there when it matters. The job is making sure the team wins.</p>
+            </div>
+            <div class="prin rv">
+                <h3>Think in patterns</h3>
+                <p>Why did that investor pass? What made that customer engage? What's the real signal in the noise? I study behaviour, notice what repeats, and use it to make sharper decisions next time. That's how you get better fast.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="wrap"><div class="line"></div></div>
+
+<section id="contact" class="cta">
+    <div class="wrap">
+        <div class="section-label rv">Contact</div>
+        <div class="section-heading rv">I'm in London.</div>
+        <div class="section-sub rv">
+            If you're building something early stage and need someone to own the commercial side, I'd like to hear about it.
+        </div>
+        <div class="cta-row rv">
+            <a href="https://www.linkedin.com/in/hriday-rathi/" class="cta-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                LinkedIn
+            </a>
+            <a href="mailto:hridayhrathi@gmail.com" class="cta-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                Email
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <p>Hriday Rathi · London · 2026</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/hriday-rathi/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:hridayhrathi@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const n=document.getElementById('nav');
+    window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));
+    const o=new IntersectionObserver(es=>{
+        es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+    },{threshold:0.06,rootMargin:'0px 0px -24px 0px'});
+    document.querySelectorAll('.rv').forEach(el=>o.observe(el));
+    const toggle=document.getElementById('navToggle');
+    const links=document.getElementById('navLinks');
+    toggle.addEventListener('click',()=>links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+</script>
+
+</body></html>
