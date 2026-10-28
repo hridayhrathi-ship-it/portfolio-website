@@ -4,7 +4,7 @@
 Hriday's personal portfolio site at https://hridayrathi.netlify.app/
 
 ## Tech
-- Single-file HTML (`index.html`), no framework, no build step. No dashes (em or en) in site text, by Hriday's preference.
+- Single-file HTML (`index.html`), no framework, no build step. No em dashes in site text, by Hriday's preference.
 - Inline CSS with custom properties for theming
 - Google Fonts: Fraunces (serif) + Plus Jakarta Sans (sans-serif)
 - Purple accent (#6D5BD0) on warm off-white (#F6F5F2)
